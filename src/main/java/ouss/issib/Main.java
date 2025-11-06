@@ -2,8 +2,10 @@ package ouss.issib;
 
 import ouss.issib.context.ImageProcessor;
 import ouss.issib.impl.CompressionTemplate;
+import ouss.issib.impl.ImplNonStandard;
 import ouss.issib.strategy.FilterStrategy;
 
+import java.lang.reflect.Constructor;
 import java.util.Scanner;
 
 public class Main {
@@ -18,7 +20,11 @@ public class Main {
         String compressionClass = sc.nextLine();
 
         // Chargement dynamique
-        FilterStrategy filter = (FilterStrategy) Class.forName("ouss.issib.impl."+filterClass).newInstance();
+//        FilterStrategy filter = (FilterStrategy) Class.forName("ouss.issib.impl."+filterClass).newInstance();
+        Class<?> c = Class.forName("ouss.issib.impl."+filterClass);
+        Constructor<?> cons = c.getConstructor(ImplNonStandard.class);
+        FilterStrategy filter = (FilterStrategy) cons.newInstance(new ImplNonStandard());
+
         CompressionTemplate compression = (CompressionTemplate) Class.forName("ouss.issib.impl."+compressionClass).newInstance();
 
         ImageProcessor processor = new ImageProcessor(filter, compression);
