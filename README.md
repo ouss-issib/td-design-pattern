@@ -4,7 +4,7 @@ Ce dépôt regroupe l’ensemble des travaux réalisés dans le cadre du module 
 
 Il contient :
 - ✅ **Exercice 1 : Analyse & Diagrammes UML**
-- ✅ **Exercice 2 : Développement d’un Framework Image Processor ** (Strategy + Adapter + Template Method)
+- ✅ **Exercice 2 : Développement d’un Framework Image Processor ** (Strategy + Adapter + Template Method)**
 
 Chaque question est accompagnée d’un **diagramme UML** ou d’une **capture d’exécution**.
 
